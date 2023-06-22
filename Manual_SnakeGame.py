@@ -1,7 +1,6 @@
 import pygame, random, sys
 import streamlit as st
 st.title("==== Welcome to Snake Game ====")
-@st.cache
 
 from pygame.locals import *
 def collide(x1, x2, y1, y2, w1, w2, h1, h2):
@@ -12,7 +11,7 @@ def collide(x1, x2, y1, y2, w1, w2, h1, h2):
 
 def die(screen, score):
 	f=pygame.font.SysFont('Arial', 30);t=f.render('Your score was: '+str(score), True, (0, 0, 0));screen.blit(t, (10, 270));pygame.display.update();pygame.time.wait(2000);sys.exit(0)
-
+#@st.cache
 xs = [290, 290, 290, 290, 290];ys = [290, 270, 250, 230, 210];dirs = 0;score = 0;
 applepos = (random.randint(0, 590), random.randint(0, 590));
 pygame.init();
@@ -60,3 +59,5 @@ while True:
 	for i in range(0, len(xs)):
 		s.blit(img, (xs[i], ys[i]))
 	s.blit(appleimage, applepos);t=f.render(str(score), True, (0, 0, 0));s.blit(t, (10, 10));pygame.display.update()
+
+
